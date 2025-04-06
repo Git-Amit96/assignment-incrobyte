@@ -6,9 +6,10 @@ const SubCategory = () => {
 
   const [subCategories, setSubCategories] = useState([]);
   const {categoryID}= useParams();
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const fetchCategories = async () => {
-    const res = await fetch(`https://incrobytes-assignment.onrender.com/item/sub-category/${categoryID}`, {
+    const res = await fetch(`${apiUrl}item/sub-category/${categoryID}`, {
       method: "GET",
       credentials: "include",
     });
@@ -24,7 +25,7 @@ const SubCategory = () => {
     subCategories.length > 0 ? (
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4  w-[90%] m-auto">
         {subCategories.map((category) => (
-          <Link to={`/subCategory/67f0f2bdd3f2c47c543ed0c8/products`} key={category._id}>
+          <Link to={`/subCategory/${category._id}/products`} key={category._id}>
             <ItemCard
               name={category.name}
               description={category.description}

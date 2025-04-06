@@ -8,10 +8,11 @@ const AuthProvider = ({ children }) => {
     user: null,
   });
   const [loading, setLoading] = useState(true);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const checkUser = async () => {
     try {
-      const res = await fetch(`https://incrobytes-assignment.onrender.com/auth/user/verify`, {
+      const res = await fetch(`${apiUrl}auth/user/verify`, {
         method: "GET",
         credentials: "include",
 

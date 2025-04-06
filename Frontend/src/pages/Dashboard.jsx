@@ -7,11 +7,12 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
   const { setAuth } = useAuth();
+  const apiUrl = import.meta.env.VITE_API_URL;
 
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("https://incrobytes-assignment.onrender.com/auth/user/logout", {
+      const res = await fetch(`${apiUrl}auth/user/logout`, {
         method: "POST",
         credentials: "include", 
       });
