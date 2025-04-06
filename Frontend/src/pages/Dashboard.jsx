@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useNavigate} from 'react-router-dom';
 import { useAuth } from '../utils/AuthProvider.jsx';
 import BreadCrumb from '@/components/BreadCrumb.jsx';
 
@@ -7,11 +7,7 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
   const { setAuth } = useAuth();
-  const {category, subCategory}= useParams();
 
-  const handleClick = () => {
-    navigate(-1);
-  }
 
   const handleLogout = async () => {
     try {
